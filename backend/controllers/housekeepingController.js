@@ -95,6 +95,28 @@ const updateTask = async (req, res, next) => {
  * @route   DELETE /api/housekeeping/:id
  * @access  Admin, Manager
  */
+const getTaskById = async (req, res, next) => {
+  try {
+    const task = await HousekeepingTask.findById(req.params.id)
+      .populate("room", "roomNumber floor status")
+      .populate("assignedTo", "name email")
+      .populate("assignedBy", "name email");
+
+    if (!task) return next(new ErrorResponse("Task not found", 404));
+
+    if (
+      req.user.role === "Housekeeping" &&
+      task.assignedTo._id.toString() !== req.user._id.toString()
+    ) {
+      return next(new ErrorResponse("Not authorized to view this task", 403));
+    }
+
+    res.status(200).json({ success: true, task });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const deleteTask = async (req, res, next) => {
   try {
     const task = await HousekeepingTask.findByIdAndDelete(req.params.id);
@@ -106,4 +128,4 @@ const deleteTask = async (req, res, next) => {
   }
 };
 
-module.exports = { createTask, getAllTasks, updateTask, deleteTask };
+module.exports = { createTask, getAllTasks, getTaskById, updateTask, deleteTask };

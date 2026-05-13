@@ -4,27 +4,118 @@
 @import "@fontsource/inter/500.css";
 @import "@fontsource/inter/600.css";
 @import "@fontsource/inter/700.css";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/cormorant-garamond/300.css";
+@import "@fontsource/cormorant-garamond/400.css";
+@import "@fontsource/cormorant-garamond/500.css";
+@import "@fontsource/cormorant-garamond/600.css";
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html,
-body,
-#root{
-  width:100%;
-  min-height:100vh;
-}
+html, body, #root { width: 100%; min-height: 100vh; }
 
-body{
-  background:#0a0a0f;
-  color:white;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+body {
+  background: #080a0f;
+  color: white;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.font-serif  { font-family: 'Playfair Display', Georgia, serif; }
+.font-luxury { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+/* Gold gradient text */
+.text-gold {
+  background: linear-gradient(135deg, #d4af37, #f5e27a, #b8960c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.glass-dark {
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ── Design tokens ── */
+:root {
+  --gold:        #c9a84c;
+  --gold-light:  #e8c96d;
+  --gold-dark:   #a07830;
+  --bg-base:     #07080d;
+  --bg-card:     #0e1018;
+  --bg-elevated: #141720;
+  --text-primary:#f0ece4;
+  --text-muted:  #6b7280;
+  --border:      rgba(201,168,76,0.12);
+  --container:   1280px;
+}
+
+/* ── Container ── */
+.container-luxury {
+  width: 100%;
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (min-width: 640px)  { .container-luxury { padding-left: 2rem;   padding-right: 2rem;   } }
+@media (min-width: 1024px) { .container-luxury { padding-left: 3rem;   padding-right: 3rem;   } }
+@media (min-width: 1280px) { .container-luxury { padding-left: 4rem;   padding-right: 4rem;   } }
+
+/* ── Gold text ── */
+.text-gold {
+  background: linear-gradient(135deg, #c9a84c, #e8c96d, #a07830);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glass ── */
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.glass-gold {
+  background: rgba(201,168,76,0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(201,168,76,0.15);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.25); border-radius: 2px; }
+
+/* ── Smooth scroll ── */
+html { scroll-behavior: smooth; }
+
+button { cursor: pointer; }
+input, textarea, select { outline: none; }
+
+/* ── Swiper overrides ── */
+.swiper-pagination-bullet { background: rgba(255,255,255,0.3) !important; }
+.swiper-pagination-bullet-active { background: #c9a84c !important; width: 24px !important; border-radius: 4px !important; }
+
+
 
 button{
   cursor:pointer;

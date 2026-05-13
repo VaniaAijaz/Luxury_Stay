@@ -3,13 +3,13 @@ import API from "./axios";
 /* GET PUBLIC FEEDBACK */
 export const getFeedbacks = async () => {
   const res = await API.get("/feedback");
-  return res.data?.feedbacks ?? res.data;
+  return res.data?.feedback ?? res.data?.feedbacks ?? res.data;
 };
 
 /* GET ALL FEEDBACK (ADMIN) */
 export const getAllFeedbacksAdmin = async () => {
   const res = await API.get("/feedback/all");
-  return res.data?.feedbacks ?? res.data;
+  return res.data?.feedback ?? res.data?.feedbacks ?? res.data;
 };
 
 /* SUBMIT FEEDBACK */

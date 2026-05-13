@@ -110,4 +110,32 @@ const activateUser = async (req, res, next) => {
   }
 };
 
-module.exports = { getAllUsers, getUserById, updateUser, deactivateUser, activateUser };
+module.exports = { getAllUsers, getUserById, createUser, updateUser, deactivateUser, activateUser };
+
+/**
+ * @desc    Create a new user — Admin only
+ * @route   POST /api/users
+ * @access  Admin
+ */
+async function createUser(req, res, next) {
+  try {
+    const { name, email, password, role, phone, address, idProof } = req.body;
+
+    if (!name || !email || !password) {
+      return next(new ErrorResponse("Name, email and password are required", 400));
+    }
+
+    const existing = await User.findOne({ email });
+    if (existing) return next(new ErrorResponse("Email already registered", 400));
+
+    const user = await User.create({
+      name, email, password,
+      role: role || "Guest",
+      phone, address, idProof,
+    });
+
+    res.status(201).json({ success: true, message: "User created", user });
+  } catch (error) {
+    next(error);
+  }
+}

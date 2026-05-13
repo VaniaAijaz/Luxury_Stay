@@ -12,6 +12,12 @@ export const getUserById = async (id) => {
   return res.data?.user ?? res.data;
 };
 
+/* CREATE STAFF (Admin only — protected route) */
+export const createStaff = async (data) => {
+  const res = await API.post("/users", data);
+  return res.data?.user ?? res.data;
+};
+
 /* UPDATE USER */
 export const updateUser = async (id, data) => {
   const res = await API.put(`/users/${id}`, data);

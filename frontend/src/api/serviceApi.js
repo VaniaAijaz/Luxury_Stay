@@ -3,13 +3,13 @@ import API from "./axios";
 /* GET ALL SERVICES */
 export const getServiceRequests = async () => {
   const res = await API.get("/services");
-  return res.data?.serviceRequests ?? res.data;
+  return res.data?.requests ?? res.data?.serviceRequests ?? res.data;
 };
 
 /* GET MY SERVICES */
 export const getMyServiceRequests = async () => {
   const res = await API.get("/services/my");
-  return res.data?.serviceRequests ?? res.data;
+  return res.data?.requests ?? res.data?.serviceRequests ?? res.data;
 };
 
 /* CREATE SERVICE REQUEST */

@@ -4,6 +4,7 @@ const router = express.Router();
 const {
   createTask,
   getAllTasks,
+  getTaskById,
   updateTask,
   deleteTask,
 } = require("../controllers/housekeepingController");
@@ -17,6 +18,13 @@ router.get(
   "/",
   authorize("Admin", "Manager", "Housekeeping"),
   getAllTasks
+);
+
+// GET /api/housekeeping/:id — Admin, Manager, Housekeeping
+router.get(
+  "/:id",
+  authorize("Admin", "Manager", "Housekeeping"),
+  getTaskById
 );
 
 // POST /api/housekeeping  — Admin, Manager

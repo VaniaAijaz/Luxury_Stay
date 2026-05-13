@@ -49,6 +49,7 @@ import InvoiceDetails from "../pages/invoices/InvoiceDetails";
 import Users from "../pages/users/Users";
 import UserDetails from "../pages/users/UserDetails";
 import EditUser from "../pages/users/EditUser";
+import Guests from "../pages/users/Guests";
 
 /* ERROR */
 import NotFound from "../pages/errors/NotFound";
@@ -84,7 +85,7 @@ const AppRoutes = () => {
       <Route path="/bookings/create" element={<Protected><CreateBooking /></Protected>} />
       <Route path="/bookings/:id" element={<Protected><BookingDetails /></Protected>} />
 
-      {/* ── CHECK-IN / OUT (redirect to booking details) ── */}
+      {/* ── CHECK-IN / OUT ── */}
       <Route path="/checkin/:id" element={<Protected roles={["Admin", "Manager", "Receptionist"]}><BookingDetails /></Protected>} />
       <Route path="/checkout/:id" element={<Protected roles={["Admin", "Manager", "Receptionist"]}><BookingDetails /></Protected>} />
 
@@ -114,6 +115,9 @@ const AppRoutes = () => {
       <Route path="/users" element={<Protected roles={["Admin", "Manager"]}><Users /></Protected>} />
       <Route path="/users/:id" element={<Protected roles={["Admin", "Manager"]}><UserDetails /></Protected>} />
       <Route path="/users/edit/:id" element={<Protected roles={["Admin", "Manager"]}><EditUser /></Protected>} />
+
+      {/* ── GUESTS ── */}
+      <Route path="/guests" element={<Protected roles={["Admin", "Manager"]}><Guests /></Protected>} />
 
       {/* ── 404 ── */}
       <Route path="*" element={<NotFound />} />

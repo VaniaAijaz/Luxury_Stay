@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.2.11",
     "@fontsource/inter": "^5.2.8",
+    "@fontsource/playfair-display": "^5.2.8",
     "axios": "^1.16.0",
     "clsx": "^2.1.1",
     "cors": "^2.8.6",
@@ -23,6 +25,7 @@
     "react-router-dom": "^7.15.0",
     "react-tooltip": "^6.0.2",
     "recharts": "^3.8.1",
+    "swiper": "^12.1.4",
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import {
   LayoutDashboard, BedDouble, CalendarCheck, UserCheck,
   Sparkles, Wrench, ConciergeBell, MessageSquare,
-  FileText, Users, Settings, LogOut,
+  FileText, Users, Settings, LogOut, User,
   ChevronLeft, ChevronRight, Hotel,
 } from "lucide-react";
 
@@ -39,7 +39,8 @@ const NAV = [
   {
     group: "ADMIN",
     items: [
-      { label: "Users",        icon: Users,           path: "/users",        roles: ["Admin","Manager"] },
+      { label: "Staff",        icon: Users,           path: "/users",        roles: ["Admin","Manager"] },
+      { label: "Guests",       icon: User,            path: "/guests",       roles: ["Admin","Manager"] },
       { label: "Settings",     icon: Settings,        path: "/settings",     roles: ["Admin","Manager","Receptionist","Housekeeping","Guest"] },
     ],
   },

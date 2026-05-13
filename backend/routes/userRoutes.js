@@ -4,6 +4,7 @@ const router = express.Router();
 const {
   getAllUsers,
   getUserById,
+  createUser,
   updateUser,
   deactivateUser,
   activateUser,
@@ -15,6 +16,9 @@ router.use(protect);
 
 // GET /api/users          — Admin, Manager
 router.get("/", authorize("Admin", "Manager"), getAllUsers);
+
+// POST /api/users         — Admin only (create any user)
+router.post("/", authorize("Admin"), createUser);
 
 // GET /api/users/:id      — Admin, Manager
 router.get("/:id", authorize("Admin", "Manager"), getUserById);
