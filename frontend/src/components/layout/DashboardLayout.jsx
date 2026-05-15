@@ -17,15 +17,15 @@ export default function DashboardLayout({ children }) {
   };
 
   return (
-    <div className="flex bg-[#0d0f14] min-h-screen text-white p-4 md:p-6">
+    <div className="flex gap-3 bg-[#0d0f14] min-h-screen text-white p-4 md:p-6">
 
       {/* Desktop Sidebar */}
-      <div className="hidden md:block mr-5">
+      <div className="hidden md:block">
         <Sidebar />
       </div>
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col min-w-0 rounded-3xl overflow-hidden border border-white/10 bg-[#111111]">
+      <div className="flex-1 flex flex-col min-w-0  overflow-hidden border border-white/10 bg-[#111111]">
 
         {/* Top Navbar */}
         <header className="h-16 flex items-center justify-between px-5 md:px-7 border-b border-white/10 bg-[#0d0d0d] shrink-0">
@@ -59,7 +59,7 @@ export default function DashboardLayout({ children }) {
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-auto p-5 md:p-8">
+        <main className="flex-1 overflow-auto px-5 py-5 md:px-10 md:py-8">
           {children}
         </main>
       </div>

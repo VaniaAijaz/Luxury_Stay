@@ -211,7 +211,7 @@ export default function AdminDashboard() {
      RENDER
   ════════════════════════════════════════════════════════ */
   return (
-    <div className="space-y-6 min-h-full text-white">
+    <div className="space-y-2 min-h-full text-white">
 
       {/* ── Header ── */}
       <div className="flex items-center justify-between pb-2">
@@ -230,8 +230,8 @@ export default function AdminDashboard() {
       </div>
 
       {/* ── Top 4 KPI cards ── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-        <KpiCard
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-2">
+        <KpiCard 
           label="Total Revenue"
           value={fmtMoney(totalRevenue)}
           sub={`${fmtMoney(paidRevenue)} collected`}
@@ -266,7 +266,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* ── Second row — 4 mini stats ── */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
         {[
           { label: "Check-ins Today",   value: checkinsToday,   icon: <LogIn size={18} />,        color: "text-green-400",  bg: "bg-green-500/10"  },
           { label: "Check-outs Today",  value: checkoutsToday,  icon: <CalendarCheck size={18} />, color: "text-blue-400",   bg: "bg-blue-500/10"   },
@@ -286,7 +286,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* ── Charts row 1 ── */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-10 mx-10">
 
         {/* Revenue Analytics */}
         <ChartCard title="Revenue Analytics" sub="Monthly revenue and booking trends">
@@ -511,19 +511,21 @@ const ACCENT = {
 function KpiCard({ label, value, sub, icon, trend, accent = "blue" }) {
   const a = ACCENT[accent];
   return (
-    <div className="bg-[#16181d] border border-white/10 rounded-2xl p-6 space-y-4">
-      <div className="flex items-center justify-between">
-        <p className="text-[11px] text-gray-500 uppercase tracking-widest font-semibold">{label}</p>
-        <div className={`w-9 h-9 rounded-xl ${a.bg} flex items-center justify-center ${a.text}`}>
-          {icon}
+    <div className="bg-[#16181d] border border-white/10 rounded-2xl">
+      <div className="p-6 sm:p-7 md:p-9 lg:p-10 space-y-4">
+        <div className="flex items-center justify-between">
+          <p className="text-[11px] text-gray-500 uppercase tracking-widest font-semibold">{label}</p>
+          <div className={`w-9 h-9 rounded-xl ${a.bg} flex items-center justify-center ${a.text}`}>
+            {icon}
+          </div>
         </div>
-      </div>
-      <p className="text-4xl font-bold tracking-tight">{value}</p>
-      <div className="flex items-center justify-between pt-1">
-        <p className="text-[11px] text-gray-600">{sub}</p>
-        <span className="flex items-center gap-0.5 text-[11px] text-green-400 font-medium">
-          <ArrowUpRight size={12} />{trend}
-        </span>
+        <p className="text-4xl font-bold tracking-tight">{value}</p>
+        <div className="flex items-center justify-between pt-1">
+          <p className="text-[11px] text-gray-600">{sub}</p>
+          <span className="flex items-center gap-0.5 text-[11px] text-green-400 font-medium">
+            <ArrowUpRight size={12} />{trend}
+          </span>
+        </div>
       </div>
     </div>
   );

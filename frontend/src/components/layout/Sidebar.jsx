@@ -11,37 +11,146 @@ import {
 } from "lucide-react";
 
 /* ─── Menu definition ─── */
+// const NAV = [
+
+//   {
+//     group: "MAIN",
+//     items: [
+//       { label: "Dashboard",    icon: LayoutDashboard, path: "/dashboard",    roles: ["Admin","Manager","Receptionist","Housekeeping","Guest"] },
+//       { label: "Rooms",        icon: BedDouble,       path: "/rooms",        roles: ["Admin","Manager","Receptionist","Guest"] },
+//       { label: "Bookings",     icon: CalendarCheck,   path: "/bookings",     roles: ["Admin","Manager","Receptionist"] },
+//       { label: "Check-In/Out", icon: UserCheck,       path: "/bookings",     roles: ["Admin","Manager","Receptionist"] },
+//     ],
+//   },
+//   {
+//     group: "OPERATIONS",
+//     items: [
+//       { label: "Housekeeping", icon: Sparkles,        path: "/housekeeping", roles: ["Admin","Manager","Housekeeping"] },
+//       { label: "Maintenance",  icon: Wrench,          path: "/maintenance",  roles: ["Admin","Manager","Receptionist"] },
+//       { label: "Services",     icon: ConciergeBell,   path: "/services",     roles: ["Admin","Manager","Receptionist","Guest"] },
+//     ],
+//   },
+//   {
+//     group: "REPORTS",
+//     items: [
+//       { label: "Feedback",     icon: MessageSquare,   path: "/feedback",     roles: ["Admin","Manager","Guest"] },
+//       { label: "Invoices",     icon: FileText,        path: "/invoices",     roles: ["Admin","Manager","Receptionist"] },
+//     ],
+//   },
+//   {
+//     group: "ADMIN",
+//     items: [
+//       { label: "Staff",        icon: Users,           path: "/users",        roles: ["Admin","Manager"] },
+//       { label: "Guests",       icon: User,            path: "/guests",       roles: ["Admin","Manager"] },
+//       { label: "Settings",     icon: Settings,        path: "/settings",     roles: ["Admin","Manager","Receptionist","Housekeeping","Guest"] },
+//     ],
+//   },
+// ];
+
 const NAV = [
   {
     group: "MAIN",
     items: [
-      { label: "Dashboard",    icon: LayoutDashboard, path: "/dashboard",    roles: ["Admin","Manager","Receptionist","Housekeeping","Guest"] },
-      { label: "Rooms",        icon: BedDouble,       path: "/rooms",        roles: ["Admin","Manager","Receptionist","Guest"] },
-      { label: "Bookings",     icon: CalendarCheck,   path: "/bookings",     roles: ["Admin","Manager","Receptionist"] },
-      { label: "Check-In/Out", icon: UserCheck,       path: "/bookings",     roles: ["Admin","Manager","Receptionist"] },
+      {
+        label: "Dashboard",
+        icon: LayoutDashboard,
+        path: "/dashboard",
+        roles: ["Admin","Manager","Receptionist","Housekeeping","Guest"]
+      },
+
+      {
+        label: "Rooms",
+        icon: BedDouble,
+        path: "/rooms",
+        roles: ["Manager","Receptionist","Guest"]
+      },
+
+      {
+        label: "Bookings",
+        icon: CalendarCheck,
+        path: "/bookings",
+        roles: ["Manager","Receptionist"]
+      },
+
+      {
+        label: "Check-In/Out",
+        icon: UserCheck,
+        path: "/bookings",
+        roles: ["Receptionist"]
+      },
     ],
   },
+
   {
     group: "OPERATIONS",
     items: [
-      { label: "Housekeeping", icon: Sparkles,        path: "/housekeeping", roles: ["Admin","Manager","Housekeeping"] },
-      { label: "Maintenance",  icon: Wrench,          path: "/maintenance",  roles: ["Admin","Manager","Receptionist"] },
-      { label: "Services",     icon: ConciergeBell,   path: "/services",     roles: ["Admin","Manager","Receptionist","Guest"] },
+      {
+        label: "Housekeeping",
+        icon: Sparkles,
+        path: "/housekeeping",
+        roles: ["Housekeeping","Manager"]
+      },
+
+      {
+        label: "Maintenance",
+        icon: Wrench,
+        path: "/maintenance",
+        roles: ["Receptionist","Manager"]
+      },
+
+      {
+        label: "Services",
+        icon: ConciergeBell,
+        path: "/services",
+        roles: ["Receptionist","Guest"]
+      },
     ],
   },
+
   {
     group: "REPORTS",
     items: [
-      { label: "Feedback",     icon: MessageSquare,   path: "/feedback",     roles: ["Admin","Manager","Guest"] },
-      { label: "Invoices",     icon: FileText,        path: "/invoices",     roles: ["Admin","Manager","Receptionist"] },
+      {
+        label: "Feedback",
+        icon: MessageSquare,
+        path: "/feedback",
+        roles: ["Manager","Guest"]
+      },
+
+      {
+        label: "Invoices",
+        icon: FileText,
+        path: "/invoices",
+        roles: ["Receptionist","Manager"]
+      },
     ],
   },
+
   {
     group: "ADMIN",
     items: [
-      { label: "Staff",        icon: Users,           path: "/users",        roles: ["Admin","Manager"] },
-      { label: "Guests",       icon: User,            path: "/guests",       roles: ["Admin","Manager"] },
-      { label: "Settings",     icon: Settings,        path: "/settings",     roles: ["Admin","Manager","Receptionist","Housekeeping","Guest"] },
+      {
+        label: "Staff",
+        icon: Users,
+        path: "/users",
+        roles: ["Admin"]
+      },
+
+      {
+        label: "Guests",
+        icon: User,
+        path: "/guests",
+        roles: ["Admin"]
+      },
+
+      
+
+      {
+        label: "Settings",
+        icon: Settings,
+        path: "/settings",
+        roles: ["Admin"]
+      },
     ],
   },
 ];
